@@ -8,8 +8,8 @@ inputs:
     default: "ophub"
   openwrt_path:
     description: "Choose armvirt64 file path."
-    required: false
-    default: "openwrt/bin/targets/*/*/*rootfs.tar.gz"
+    required: true
+    default: "https://github.com/ophub/amlogic-s9xxx-openwrt/releases/download/openwrt_s9xxx_official_06.28.1126/openwrt-armvirt-64-default-rootfs.tar.gz"
   openwrt_soc:
     description: "Choose Amlogic SoC."
     required: false
