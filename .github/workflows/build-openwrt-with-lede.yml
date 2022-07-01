@@ -14,7 +14,7 @@ on:
       openwrt_soc:
         description: "Select Amlogic SoC"
         required: false
-        default: "s905x3"
+        default: "s905d"
         type: choice
         options:
           - all
