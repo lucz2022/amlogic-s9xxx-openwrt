@@ -16,3 +16,5 @@ sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
 
 # other
 # rm -rf package/lean/{samba4,luci-app-samba4,luci-app-ttyd}
+./scripts/feeds update -a
+./scripts/feeds install -a
