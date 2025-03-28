@@ -229,6 +229,12 @@ on:
           - ophub
           - angel
           - yourname
+            ssh:
+      description: 'SSH connection to Actions'
+         required: true
+         default: 'true'
+
+          
 
 env:
   FEEDS_CONF: config/${{ inputs.source_branch }}/feeds.conf.default
