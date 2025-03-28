@@ -1,6 +1,13 @@
 #============================================================================================
 # https://github.com/ophub/amlogic-s9xxx-openwrt
-# Description: Build OpenWrt
+# Description:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: true
+        default: 'true' Build OpenWrt
 #============================================================================================
 
 name: Build OpenWrt
@@ -229,10 +236,6 @@ on:
           - ophub
           - angel
           - yourname
-            ssh:
-      description: 'SSH connection to Actions'
-         required: true
-         default: 'true'
 
           
 
