@@ -1,13 +1,34 @@
-#============================================================================================
-# https://github.com/ophub/amlogic-s9xxx-openwrt
-# Description:
+
+on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
       ssh:
         description: 'SSH connection to Actions'
         required: true
-        default: 'true' Build OpenWrt
+        default: 'true'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 启用 SSH 连接
+      - name: Setup SSH via tmate
+        if: ${{ github.event.inputs.ssh == 'true' }}
+        run: |
+          sudo apt update
+          sudo apt install -y tmate
+          tmate -S /tmp/tmate.sock new-session -d
+          tmate -S /tmp/tmate.sock wait tmate-ready
+          echo "SSH 连接信息：" 
+          tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}'
+          tmate -S /tmp/tmate.sock display -p '#{tmate_web}'
+#============================================================================================
+# https://github.com/ophub/amlogic-s9xxx-openwrt
+# Description: Build OpenWrt
 #============================================================================================
 
 name: Build OpenWrt
